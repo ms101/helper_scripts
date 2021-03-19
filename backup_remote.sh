@@ -11,7 +11,7 @@ cd ~
 # compress
 echo "[*] compressing data..."
 if tar -czf $NAME$DATE.tgz $SOURCE; then
-	echo "[*] compressing done"
+	:
 else
 	echo "[!] compression failed!"
 	exit 1
@@ -20,7 +20,6 @@ fi
 # encrypt
 echo "[*] encrypting data..."
 if gpg2 --batch --yes --passphrase=secret -c $NAME$DATE.tgz; then
-	echo "[*] encryption done"
 	rm $NAME$DATE.tgz
 else
 	echo "[!] encryption failed!"
@@ -30,7 +29,6 @@ fi
 # copy via scp
 echo "[*] copying to server..."
 if scp $NAME$DATE.tgz.gpg user@host:/dir/; then
-	echo "[*] scp done!"
 	echo "[*] backup succeeded!"
 #	rm $NAME$DATE.tgz.gpg
 else
