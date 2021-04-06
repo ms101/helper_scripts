@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>XHR-Test</title>
+</head>
+<body>
+	<h1>XHR-Test</h1>
+
+<script>
+let xhr = new XMLHttpRequest();
+xhr.open("GET", "http://asdf", false);
+xhr.send();
+
+xhr.onload = function() {
+	alert(`Loaded: ${xhr.status} ${xhr.response}`);
+};
+xhr.onprogress = function(event) {
+	if (event.lengthComputable) {
+		alert(`Received ${event.loaded} of ${event.total} bytes`);
+	} else {
+		alert(`Received ${event.loaded} bytes`);
+	}
+
+};
+xhr.onerror = function() {
+	alert(`Network Error`);
+};
+</script>
+
+</body>
+</html>
