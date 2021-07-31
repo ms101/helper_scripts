@@ -1,13 +1,13 @@
 #!/bin/bash
 # simple manual integrity check for /boot partition with find or dd
-# 1. hash all files in /boot
+# 1. hash /boot partition or its files
 # 2. check if hash is different to last check (value stored in textfile)
 # 3. write new value to textfile
 # usage:
 #	script.sh 		# runs the checks
 #	script.sh reset		# deletes textfile
 
-method=find			# find oder dd
+method=find			# find or dd
 bootpart=/dev/sdb1		# /boot partition
 textfile=~/skripte/bootintegrity.${method}.sha256
 
