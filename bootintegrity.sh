@@ -8,8 +8,8 @@
 #	script.sh reset		# deletes textfile
 
 method=find			# find or dd
-bootpart=/dev/sdb1		# /boot partition
-textfile=~/skripte/bootintegrity.${method}.sha256
+bootpart=/dev/sda1		# /boot partition
+textfile=~/.bootintegrity.${method}.sha256
 
 
 if [[ "$1" == "reset" ]]; then
