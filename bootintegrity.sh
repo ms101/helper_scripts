@@ -20,7 +20,7 @@ fi
 
 echo "[*] sha256 hash of /boot or its files via $method:"
 if [[ "$method" == "dd" ]]; then
-	NEU=$(sudo dd if=$bootpart bs=1K count=1 | sha256sum)
+	NEU=$(sudo dd if=$bootpart bs=1K | sha256sum)
 else
 	NEU=$(find /boot -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum)
 fi
