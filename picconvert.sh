@@ -20,7 +20,7 @@ do
 
 	if ([ $ext == "jpg" ] || [ $ext == "JPG" ])
 	then
-		convert "$jpg" -resize $width -quality $q "$jpg"
+		magick "$jpg" -resize $width -quality $q "$jpg"
 		echo "[*] $jpg converted"
 	else
 		echo "[!] $jpg is not a JPG"
